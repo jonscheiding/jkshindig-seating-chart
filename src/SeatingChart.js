@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { NamesColumn } from './NamesColumn';
+import { SeatingChartColumn } from './SeatingChartColumn';
 
 import { NAMES_COLUMNS } from './Design';
 import DATA from './data.json';
@@ -16,7 +16,7 @@ for(const row of DATA) {
   DATA_BY_LETTER[letter].push(row);
 }
 
-export class Names extends Component {
+export class SeatingChart extends Component {
   render() {
     const columns = [];
 
@@ -32,7 +32,7 @@ export class Names extends Component {
         });
       }
       
-      columns.push(<NamesColumn col={i} top={column.top} dataByLetter={dataByLetter} />);
+      columns.push(<SeatingChartColumn col={i} top={column.top} dataByLetter={dataByLetter} />);
     }
 
     return (

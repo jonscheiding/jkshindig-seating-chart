@@ -21,7 +21,7 @@ for(let i = 0; i < 6; i++) {
   HEXAGON_ANGLES.push({ degrees, radians });
 }
 
-export class ShindigHexagon extends Component {
+export class BorderHexagon extends Component {
   calculateCenter(row, col) {
     return {
       y: row * SPACING_VERTICAL,

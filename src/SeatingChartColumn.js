@@ -7,7 +7,7 @@ const SPACING_BETWEEN = 100;
 const COLUMN_COUNT = 5;
 const COLUMN_WIDTH = (VIEWBOX_WIDTH - (SPACING_EDGE * 2) - (SPACING_BETWEEN * (COLUMN_COUNT - 1))) / COLUMN_COUNT;
 
-export class NamesColumn extends Component {
+export class SeatingChartColumn extends Component {
   renderSection(top, left, count) {
     const height = 50 + (30 * count);
 
