@@ -4,6 +4,8 @@ export const COLOR_FOREGROUND_DARK = '#cc9389';
 export const COLOR_FOREGROUND_LIGHT = '#f0d0bd';
 export const COLOR_FOREGROUND_OUTLINE = '#9b4e34';
 
+export const TITLE_FONT_SIZE = 280;
+
 export const HEXAGON_ROWS = [
   { rowNumber: 0, left: 3, right: 2 },
   { rowNumber: 1, left: 3, right: 2 },
