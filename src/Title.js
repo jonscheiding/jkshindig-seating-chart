@@ -17,7 +17,7 @@ export class Title extends Component {
     const bigOrigin = {x: 900, y: 750};
     const smallOrigin = {
       x: bigOrigin.x + (TITLE_FONT_SIZE / 3),
-      y: bigOrigin.y + (TITLE_FONT_SIZE * 1.8)
+      y: bigOrigin.y + (TITLE_FONT_SIZE * 2)
     };
 
     return (
