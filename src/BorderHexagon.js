@@ -41,7 +41,8 @@ export class BorderHexagon extends Component {
   }
 
   calculateRotation(row, col) {
-    const rotationIndex = (row + (col % 3)) % 6;
+    const rotationIndex = (row + (col * 2)) % 6;
+    // const rotationIndex = (row + ((col - 1) % 3)) % 6;
     return HEXAGON_ANGLES[rotationIndex];
   }
 
@@ -57,12 +58,11 @@ export class BorderHexagon extends Component {
 
     return (
       <linearGradient id={gradientId} 
-      x1={0.5 - gradientOffset.x} y1={0.5 - gradientOffset.y}
-      x2={0.5 + gradientOffset.x} y2={0.5 + gradientOffset.y}
-      >
-      <stop offset="0%" stopColor={COLOR_FOREGROUND_LIGHT} />
-      <stop offset="100%" stopColor={COLOR_FOREGROUND_DARK} />
-    </linearGradient>
+        x1={0.5 - gradientOffset.x} y1={0.5 - gradientOffset.y}
+        x2={0.5 + gradientOffset.x} y2={0.5 + gradientOffset.y}>
+        <stop offset="0%" stopColor={COLOR_FOREGROUND_LIGHT} />
+        <stop offset="100%" stopColor={COLOR_FOREGROUND_DARK} />
+      </linearGradient>
     ) 
   }
 
