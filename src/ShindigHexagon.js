@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
 import { HEXAGON_RADIUS } from './Layout';
-import { COLOR_FOREGROUND_OUTLINE } from './Design';
+import { 
+  COLOR_FOREGROUND_LIGHT,
+  COLOR_FOREGROUND_DARK,
+  COLOR_FOREGROUND_OUTLINE 
+} from './Design';
 
 const SPACING_HORIZONTAL = HEXAGON_RADIUS * 3;
 const SPACING_VERTICAL = HEXAGON_RADIUS * Math.sqrt(3) / 2;
@@ -28,11 +32,29 @@ export class ShindigHexagon extends Component {
     }
 
     const pointsProperty = points.map(p => `${p.x},${p.y}`).join(' ');
+    
+    const id = `${row}-${col}`;
+    
+    const rotation = ((row * 2) + (col * 2) + (row % 2)) * 60 * Math.PI / 180;
+
+    const gradientOffset = {
+      x: 0.5 * Math.cos(rotation),
+      y: 0.5 * Math.sin(rotation)
+    };
 
     return (
-      <polygon fill="none" 
-        stroke={COLOR_FOREGROUND_OUTLINE} stroke-width={STROKE_WIDTH} 
-        points={pointsProperty} />
+      <g>
+        <linearGradient id={id} 
+          x1={0.5 - gradientOffset.x} y1={0.5 - gradientOffset.y}
+          x2={0.5 + gradientOffset.x} y2={0.5 + gradientOffset.y}
+          >
+          <stop offset="0%" stopColor={COLOR_FOREGROUND_LIGHT} />
+          <stop offset="100%" stopColor={COLOR_FOREGROUND_DARK} />
+        </linearGradient>
+        <polygon fill={`url(#${id})`}
+          stroke={COLOR_FOREGROUND_OUTLINE} strokeWidth={STROKE_WIDTH} 
+          points={pointsProperty} />
+      </g>
     );
   }
 }
