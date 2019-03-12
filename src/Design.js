@@ -24,3 +24,11 @@ export const HEXAGON_ROWS = [
   { rowNumber: 25, left: 1, right: 2 },
   { rowNumber: 26, left: 1, right: 4 }
 ];
+
+export const NAMES_COLUMNS = [
+  { column: 0, top: 600, letters: 'BC' },
+  { column: 1, top: 1000, letters: 'DEFG' },
+  { column: 2, top: 200, letters: 'HIKLM' },
+  { column: 3, top: 200, letters: 'NOPRS' },
+  { column: 4, top: 200, letters: 'TUVWZ' }
+];

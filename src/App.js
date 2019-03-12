@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { ShindigHexagons } from './ShindigHexagons';
 import { Title } from './Title';
+import { Names } from './Names';
 
 import { 
   RENDER_WIDTH, RENDER_HEIGHT,
@@ -27,6 +28,7 @@ class App extends Component {
         <rect width="100%" height="100%" fill={COLOR_BACKGROUND} />
         <ShindigHexagons />
         <Title />
+        <Names />
       </svg>
     );
   }
