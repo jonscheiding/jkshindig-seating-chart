@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { 
+  COLOR_BACKGROUND, 
+  SIZE_RENDER_WIDTH, SIZE_RENDER_HEIGHT,
+  SIZE_VIEWBOX_WIDTH, SIZE_VIEWBOX_HEIGHT
+} from './constants';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <svg width={SIZE_RENDER_WIDTH} height={SIZE_RENDER_HEIGHT} 
+        viewBox={`0 0 ${SIZE_VIEWBOX_WIDTH} ${SIZE_VIEWBOX_HEIGHT}`}>
+        <rect width="100%" height="100%" fill={COLOR_BACKGROUND} />
+      </svg>
     );
   }
 }
