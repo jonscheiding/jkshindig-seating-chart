@@ -17,7 +17,7 @@ export class SeatingChartColumn extends Component {
   }
 
   render() {
-    const { col, top, dataByLetter } = this.props;
+    const { col, top, letters, data } = this.props;
 
     const left = SPACING_EDGE + ((COLUMN_WIDTH + SPACING_BETWEEN) * col);
 
@@ -25,9 +25,10 @@ export class SeatingChartColumn extends Component {
 
     let currentTop = top || 300;
 
-    for(const letter of dataByLetter) {
-      sections.push(this.renderSection(currentTop, left, letter.data.length));
-      currentTop += 50 + (30 * letter.data.length) + 50;
+    for(const letter of letters) {
+      const rows = data[letter];
+      sections.push(this.renderSection(currentTop, left, rows.length));
+      currentTop += 50 + (30 * rows.length) + 50;
     }
 
     return (
