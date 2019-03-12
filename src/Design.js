@@ -31,7 +31,7 @@ export const HEXAGON_ROWS = [
 export const NAMES_COLUMNS = [
   { column: 0, top: 1150, letters: 'BC' },
   { column: 1, top: 1500, letters: 'DEFG' },
-  { column: 2, top: 250, letters: 'HIKLM' },
-  { column: 3, top: 400, letters: 'NOPRS' },
+  { column: 2, top: 280, letters: 'HIKLM' },
+  { column: 3, top: 380, letters: 'NOPRS' },
   { column: 4, top: 500, letters: 'TUVWZ' }
 ];
