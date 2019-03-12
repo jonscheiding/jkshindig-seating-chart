@@ -5,7 +5,7 @@ import { SeatingChartSection } from './SeatingChartSection';
 import { VIEWBOX_WIDTH } from './Layout';
 import { CHART_COLUMN_SPACING } from './Design';
 
-const SPACING_EDGE = CHART_COLUMN_SPACING * 2;
+const SPACING_EDGE = CHART_COLUMN_SPACING;
 const SPACING_BETWEEN = CHART_COLUMN_SPACING;
 const COLUMN_COUNT = 5;
 export const COLUMN_WIDTH = (VIEWBOX_WIDTH - (SPACING_EDGE * 2) - (SPACING_BETWEEN * (COLUMN_COUNT - 1))) / COLUMN_COUNT;

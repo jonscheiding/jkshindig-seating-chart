@@ -7,7 +7,7 @@ export const COLOR_FOREGROUND_OUTLINE = '#9b4e34';
 export const TITLE_FONT_SIZE = 260;
 export const CHART_LETTER_FONT_SIZE = 65;
 export const CHART_FONT_SIZE = 35;
-export const CHART_COLUMN_SPACING = 100;
+export const CHART_COLUMN_SPACING = 150;
 
 export const HEXAGON_ROWS = [
   { rowNumber: 0, left: 3, right: 2 },
