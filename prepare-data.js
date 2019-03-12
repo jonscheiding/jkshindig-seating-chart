@@ -7,7 +7,7 @@ async function processCsv(file) {
   const preparedData = {};
 
   for(const row of data) {
-    if(row.Last.length === 0) {
+    if(row.First.length === 0) {
       continue;
     }
 
