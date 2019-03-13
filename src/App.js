@@ -5,11 +5,13 @@ import { Title } from './Title';
 import { SeatingChart } from './SeatingChart';
 
 import { 
-  RENDER_WIDTH, RENDER_HEIGHT,
   VIEWBOX_WIDTH, VIEWBOX_HEIGHT
 } from './Layout';
 
 import { COLOR_BACKGROUND } from './Design';
+
+const RENDER_WIDTH = process.env.RENDER_WIDTH || process.env.REACT_APP_RENDER_WIDTH;
+const RENDER_HEIGHT = process.env.RENDER_HEIGHT || process.env.REACT_APP_RENDER_HEIGHT;
 
 class App extends Component {
   render() {
