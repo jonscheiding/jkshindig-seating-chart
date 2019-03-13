@@ -15,12 +15,11 @@ export class FullPageGradient extends Component {
     };
 
     return (
-      <linearGradient id={id} {...props} gradientUnits='userSpaceOnUse'>
-        <stop offset="10%" stopColor={COLOR_FOREGROUND_DARK} />
-        <stop offset="40%" stopColor={COLOR_FOREGROUND_LIGHT} />
-        <stop offset="70%" stopColor={COLOR_FOREGROUND_DARK} />
-        <stop offset="90%" stopColor={COLOR_FOREGROUND_LIGHT} />
-        <stop offset="100%" stopColor={COLOR_FOREGROUND_DARK} />
+      <linearGradient id={id} {...props} >
+        <stop offset="00%" stopColor={COLOR_FOREGROUND_DARK} />
+        <stop offset="20%" stopColor={COLOR_FOREGROUND_LIGHT} />
+        <stop offset="40%" stopColor={COLOR_FOREGROUND_DARK} />
+        <stop offset="60%" stopColor={COLOR_FOREGROUND_LIGHT} />
       </linearGradient>
     );
   }
