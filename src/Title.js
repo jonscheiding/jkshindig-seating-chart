@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 
 import { TITLE_FONT_SIZE } from './Design';
+import { FullPageGradient } from './FullPageGradient';
 
 export class Title extends Component {
-  renderText(origin, fontSize, ...lines) {
-    return (
-      <text x={origin.x} y={origin.y} textAnchor="middle" alignmentBaseline="middle" fontFamily='yesteryear' fontSize={fontSize}>
+  renderText(key, origin, fontSize, ...lines) {
+    return [
+      <FullPageGradient id={`gradient-${key}`} origin={origin} />,
+      <text x={origin.x} y={origin.y} fill={`url(#gradient-${key})`} textAnchor='middle' alignmentBaseline='middle' fontFamily='yesteryear' fontSize={fontSize}>
         {lines.map((line, i) => (
           <tspan key={line} x={origin.x} dy={`${i}em`}>{line}</tspan>
         ))}
       </text>
-    )
+    ]
   }
 
   render() {
@@ -22,8 +24,8 @@ export class Title extends Component {
 
     return (
       <g>
-        {this.renderText(bigOrigin, TITLE_FONT_SIZE, 'Jon &', 'Kaleigh')}
-        {this.renderText(smallOrigin, TITLE_FONT_SIZE / 2, 'March 29,', '2019')}
+        {this.renderText('title-big', bigOrigin, TITLE_FONT_SIZE, 'Jon &', 'Kaleigh')}
+        {this.renderText('title-small', smallOrigin, TITLE_FONT_SIZE / 2, 'March 29,', '2019')}
       </g>
     )
   }
