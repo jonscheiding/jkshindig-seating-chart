@@ -28,7 +28,7 @@ export class SeatingChartColumn extends Component {
     for(const letter of letters) {
       const origin = {x: left, y: currentTop}
       const rows = data[letter];
-      sections.push(<SeatingChartSection origin={origin} letter={letter} data={rows} />);
+      sections.push(<SeatingChartSection key={letter} origin={origin} letter={letter} data={rows} />);
       currentTop += SeatingChartSection.calculateHeightOffset(rows);
     }
 

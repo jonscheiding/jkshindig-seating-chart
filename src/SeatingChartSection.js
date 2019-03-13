@@ -21,14 +21,14 @@ export class SeatingChartSection extends Component {
           </text>
           <text x={0} y={CHART_LETTER_FONT_SIZE} alignmentBaseline='hanging' fill={`url(#${gradientId})`} fontFamily='Vollkorn' fontSize={CHART_FONT_SIZE}>
             {data.map((row, i) => (
-              <tspan x={0} dy='1.2em'>
+              <tspan key={`name-${i}`} x={0} dy='1.2em'>
                 {row.Title} {row.First} {row.Last}
               </tspan>
             ))}
           </text>
           <text x={COLUMN_WIDTH} y={CHART_LETTER_FONT_SIZE} alignmentBaseline='hanging' fill={`url(#${gradientId})`} fontFamily='Vollkorn' textAnchor='end' fontSize={CHART_FONT_SIZE}>
             {data.map((row, i) => (
-              <tspan x={COLUMN_WIDTH} dy='1.2em'>{row.Table}</tspan>
+              <tspan key={`number-${i}`} x={COLUMN_WIDTH} dy='1.2em'>{row.Table}</tspan>
             ))}
           </text>
         </svg>

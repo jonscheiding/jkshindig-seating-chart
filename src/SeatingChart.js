@@ -13,7 +13,11 @@ export class SeatingChart extends Component {
       const column = NAMES_COLUMNS[i];
       const letters = column.letters.split('');
       
-      columns.push(<SeatingChartColumn col={i} top={column.top} letters={letters} data={SEATING_CHART_DATA} />);
+      columns.push(
+        <SeatingChartColumn 
+          key={i} col={i} top={column.top} 
+          letters={letters} data={SEATING_CHART_DATA} />
+      );
     }
 
     return (
