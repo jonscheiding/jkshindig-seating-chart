@@ -9,29 +9,26 @@ export class SeatingChartSection extends Component {
   render() {
     const { origin, letter, data } = this.props;
 
-    const height = SeatingChartSection.calculateHeightOffset(data);
     const gradientId = `gradient-${letter}`;
 
     return (
       <g>
         <FullPageGradient id={gradientId} origin={origin} />
-        <svg x={origin.x} y={origin.y} width={COLUMN_WIDTH} height={height}>
-          <text x={0} y={0} alignmentBaseline='hanging' fill={`url(#${gradientId})`} fontFamily='Yesteryear' fontSize={CHART_LETTER_FONT_SIZE}>
-            {letter}
-          </text>
-          <text x={0} y={CHART_LETTER_FONT_SIZE} alignmentBaseline='hanging' fill={`url(#${gradientId})`} fontFamily='Vollkorn' fontSize={CHART_FONT_SIZE}>
-            {data.map((row, i) => (
-              <tspan key={`name-${i}`} x={0} dy='1.2em'>
-                {row.Title} {row.First} {row.Last}
-              </tspan>
-            ))}
-          </text>
-          <text x={COLUMN_WIDTH} y={CHART_LETTER_FONT_SIZE} alignmentBaseline='hanging' fill={`url(#${gradientId})`} fontFamily='Vollkorn' textAnchor='end' fontSize={CHART_FONT_SIZE}>
-            {data.map((row, i) => (
-              <tspan key={`number-${i}`} x={COLUMN_WIDTH} dy='1.2em'>{row.Table}</tspan>
-            ))}
-          </text>
-        </svg>
+        <text x={origin.x} y={origin.y} alignmentBaseline='hanging' fill={`url(#${gradientId})`} fontFamily='Yesteryear' fontSize={CHART_LETTER_FONT_SIZE}>
+          <tspan dy='0.6em'>{letter}</tspan>
+        </text>
+        <text x={origin.x} y={origin.y + CHART_LETTER_FONT_SIZE} alignmentBaseline='hanging' fill={`url(#${gradientId})`} fontFamily='Vollkorn' fontSize={CHART_FONT_SIZE}>
+          {data.map((row, i) => (
+            <tspan key={`name-${i}`} x={origin.x} dy='1.2em'>
+              {row.Title}&nbsp;{row.First}&nbsp;{row.Last}
+            </tspan>
+          ))}
+        </text>
+        <text x={origin.x + COLUMN_WIDTH} y={origin.y + CHART_LETTER_FONT_SIZE} alignmentBaseline='hanging' fill={`url(#${gradientId})`} fontFamily='Vollkorn' textAnchor='end' fontSize={CHART_FONT_SIZE}>
+          {data.map((row, i) => (
+            <tspan key={`number-${i}`} x={origin.x + COLUMN_WIDTH} dy='1.2em'>{row.Table}</tspan>
+          ))}
+        </text>
       </g>
     );
   }
