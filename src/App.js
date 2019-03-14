@@ -8,12 +8,20 @@ import { Fonts } from './Fonts';
 import design from './Design';
 import data from './data.json';
 
-const RENDER_SCALE = process.env.RENDER_SCALE || process.env.REACT_APP_RENDER_SCALE || 0.25;
+const { RENDER_WIDTH, RENDER_UNITS } = process.env;
 
 class App extends Component {
   render() {
+    let { width, height } = {};
+
+    if(RENDER_WIDTH !== undefined) {
+      const aspect = design.viewbox.width / design.viewbox.height;
+      width = `${RENDER_WIDTH}${RENDER_UNITS}`;
+      height = `${RENDER_WIDTH / aspect}${RENDER_UNITS}`;
+    };
+
     return (
-      <svg width={RENDER_SCALE * design.viewbox.width} height={RENDER_SCALE * design.viewbox.height} 
+      <svg width={width} height={height} 
         viewBox={`0 0 ${design.viewbox.width} ${design.viewbox.height}`}>
 
         <Fonts />
