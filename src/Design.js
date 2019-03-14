@@ -61,7 +61,7 @@ const design = {
       placements: [
         { top: 1200, letters: 'BC' },
         { top: 1500, letters: 'DEFG' },
-        { top: 330, letters: 'HIKLM' },
+        { top: 420, letters: 'HIKLM' },
         { top: 380, letters: 'NOPRS' },
         { top: 500, letters: 'TUVWZ' }
       ]
