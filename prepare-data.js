@@ -19,9 +19,27 @@ async function processCsv(file) {
     preparedData[letter].push(row);
   }
 
-  console.log(preparedData);
+  summarizeData(preparedData);
 
   fs.writeFileSync('./src/data.json', JSON.stringify(preparedData));
+}
+
+function summarizeData(data) {
+  const tableCounts = { total: 0 };
+  const letterCounts = { total: 0 };
+
+  for(const letter of Object.keys(data)) {
+    letterCounts[letter] = data[letter].length;
+    letterCounts.total += data[letter].length;
+
+    for(const person of data[letter]) {
+      tableCounts[person.Table] = (tableCounts[person.Table] || 0) + 1;
+      tableCounts.total++;
+    }
+  }
+
+  console.log(data);
+  console.log({tableCounts, letterCounts});
 }
 
 const args = process.argv.slice(2);
