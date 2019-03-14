@@ -22,14 +22,14 @@ export const HEXAGON_ROWS = [
   { rowNumber: 20, left: 0, right: 1 },
   { rowNumber: 21, left: 0, right: 1 },
   { rowNumber: 22, left: 0, right: 1 },
-  { rowNumber: 23, left: 1, right: 1 },
+  { rowNumber: 23, left: 0, right: 1 },
   { rowNumber: 24, left: 1, right: 1 },
   { rowNumber: 25, left: 1, right: 2 },
   { rowNumber: 26, left: 1, right: 4 }
 ];
 
 export const NAMES_COLUMNS = [
-  { column: 0, top: 1120, letters: 'BC' },
+  { column: 0, top: 1200, letters: 'BC' },
   { column: 1, top: 1500, letters: 'DEFG' },
   { column: 2, top: 280, letters: 'HIKLM' },
   { column: 3, top: 380, letters: 'NOPRS' },
