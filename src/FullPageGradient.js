@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import { VIEWBOX_WIDTH, VIEWBOX_HEIGHT } from './Layout';
-import { COLOR_FOREGROUND_DARK, COLOR_FOREGROUND_LIGHT } from './Design';
+import design from './Design';
 
 export class FullPageGradient extends Component {
   render() {
@@ -10,16 +9,20 @@ export class FullPageGradient extends Component {
     const props = {
       x1: -origin.x,
       y1: -origin.y,
-      x2: VIEWBOX_WIDTH - origin.x,
-      y2: VIEWBOX_HEIGHT - origin.y
+      x2: design.viewbox.width - origin.x,
+      y2: design.viewbox.height - origin.y
     };
+
+    const colors = [
+      design.colors.foregroundDark,
+      design.colors.foregroundLight
+    ];
 
     return (
       <linearGradient id={id} {...props} >
-        <stop offset="00%" stopColor={COLOR_FOREGROUND_DARK} />
-        <stop offset="20%" stopColor={COLOR_FOREGROUND_LIGHT} />
-        <stop offset="40%" stopColor={COLOR_FOREGROUND_DARK} />
-        <stop offset="60%" stopColor={COLOR_FOREGROUND_LIGHT} />
+        {design.gradient.stops.map((stop, i) => 
+          <stop key={i} offset={stop} stopColor={colors[i % colors.length]} />
+        )}
       </linearGradient>
     );
   }

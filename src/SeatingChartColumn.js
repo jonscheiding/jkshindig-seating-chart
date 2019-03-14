@@ -2,34 +2,23 @@ import React, { Component } from 'react';
 
 import { SeatingChartSection } from './SeatingChartSection';
 
-import { VIEWBOX_WIDTH } from './Layout';
-import { CHART_COLUMN_SPACING } from './Design';
-
-const SPACING_EDGE = CHART_COLUMN_SPACING * 1.5;
-const SPACING_BETWEEN = CHART_COLUMN_SPACING;
-const COLUMN_COUNT = 5;
-export const COLUMN_WIDTH = (VIEWBOX_WIDTH - (SPACING_EDGE * 2) - (SPACING_BETWEEN * (COLUMN_COUNT - 1))) / COLUMN_COUNT;
-
 export class SeatingChartColumn extends Component {
-  renderSection(top, left, height) {
-    return (
-      <rect y={top} x={left} width={COLUMN_WIDTH} height={height} fill='black' />
-    );
-  }
-
   render() {
-    const { col, top, letters, data } = this.props;
-
-    const left = SPACING_EDGE + ((COLUMN_WIDTH + SPACING_BETWEEN) * col);
+    const { position, letters, fonts, layout, data } = this.props;
 
     const sections = [];
-    let currentTop = top;
+    let currentTop = position.y;
 
     for(const letter of letters) {
-      const origin = {x: left, y: currentTop}
+      const origin = {x: position.x, y: currentTop}
       const rows = data[letter];
-      sections.push(<SeatingChartSection key={letter} origin={origin} letter={letter} data={rows} />);
-      currentTop += SeatingChartSection.calculateHeightOffset(rows);
+
+      sections.push(<SeatingChartSection 
+        key={letter} origin={origin} 
+        letter={letter} fonts={fonts} width={layout.width}
+        data={rows} />);
+
+      currentTop += SeatingChartSection.calculateHeightOffset(rows, fonts);
     }
 
     return (

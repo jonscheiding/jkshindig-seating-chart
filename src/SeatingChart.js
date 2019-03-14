@@ -2,26 +2,34 @@ import React, { Component } from 'react';
 
 import { SeatingChartColumn } from './SeatingChartColumn';
 
-import { NAMES_COLUMNS } from './Design';
-import SEATING_CHART_DATA from './data.json';
-
 export class SeatingChart extends Component {
-  render() {
-    const columns = [];
+  calculateColumnOffset(index, layout) {
+    return layout.margin + ((layout.width + layout.spacing) * index);
+  }
 
-    for(let i = 0; i < NAMES_COLUMNS.length; i++) {
-      const column = NAMES_COLUMNS[i];
+  render() {
+    const { columns, fonts } = this.props.design;
+    const { placements, layout } = columns;
+    const data = this.props.data;
+
+    const renderedColumns = [];
+
+    for(let i = 0; i < placements.length; i++) {
+      const column = placements[i];
       const letters = column.letters.split('');
+      const position = { 
+        x: this.calculateColumnOffset(i, layout),
+        y: column.top
+      };
       
-      columns.push(
-        <SeatingChartColumn 
-          key={i} col={i} top={column.top} 
-          letters={letters} data={SEATING_CHART_DATA} />
+      renderedColumns.push(
+        <SeatingChartColumn key={i} position={position} layout={layout}
+          fonts={fonts} letters={letters} data={data} />
       );
     }
 
     return (
-      <g>{columns}</g>
+      <g>{renderedColumns}</g>
     );
   }
 }
