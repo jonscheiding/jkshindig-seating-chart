@@ -16,8 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare-data": "babel-node prepare-data",
-    "render-svg": "babel-node render-svg --render-width 36 --render-units in"
+    "prepare-data": "babel-node scripts/prepare-data",
+    "render-svg": "babel-node scripts/render-svg --render-width 36 --render-units in"
   },
   "eslintConfig": {
     "extends": "react-app"

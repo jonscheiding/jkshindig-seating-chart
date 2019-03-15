@@ -3,7 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 import fs from 'fs';
 import minimist from 'minimist';
 
-import App from './src/App';
+import App from '../src/App';
 
 const args = minimist(process.argv.slice(2));
 
@@ -13,4 +13,6 @@ const rendered = ReactDOMServer.renderToString(
         renderUnits={args['render-units']} 
     />);
 
-fs.writeFileSync('./seating-chart.svg', rendered);
+const outputDir = args['output-dir'] || './data';
+
+fs.writeFileSync(outputDir + '/seating-chart.svg', rendered);
