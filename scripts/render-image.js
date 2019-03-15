@@ -7,14 +7,10 @@ import svg2img from 'svg2img';
 import App from '../src/App';
 
 const args = parseArgs([
-  { name: 'render-width', alias: 'w', type: Number, defaultValue: '36',
-    description: 'The rendering width (in inches) to use for the SVG.  Height will be computed automatically.' },
-  { name: 'output-svg', alias: 's', type: String, defaultValue: './data/seating-chart.svg',
-    description: 'The filename for the rendered SVG file.' },
-  { name: 'output-png', alias: 'p', type: String, defaultValue: './data/seating-chart.png',
-    description: 'The filename for the rendered PNG file.' },
-  { name: 'dpi', alias: 'd', type: Number, defaultValue: 300,
-    description: 'The DPI setting to use when rendering the SVG to a PNG.' }
+  { name: 'render-width', alias: 'w', type: Number, defaultValue: '36' },
+  { name: 'output-svg', alias: 's', type: String, defaultValue: './data/seating-chart.svg' },
+  { name: 'output-png', alias: 'p', type: String, defaultValue: './data/seating-chart.png' },
+  { name: 'dpi', alias: 'd', type: Number, defaultValue: 300 }
 ]);
 
 console.log(`Rendering SVG to ${args['output-svg']} at ${args['render-width']}in wide.`);
