@@ -34,4 +34,6 @@ class App extends Component {
   }
 }
 
+App.aspectRatio = design.viewbox.width / design.viewbox.height;
+
 export default App;
