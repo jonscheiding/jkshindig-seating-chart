@@ -13,7 +13,7 @@ export class Border extends Component {
   }
 
   calculateRotation(placement) {
-    return (placement.row + (placement.col * 2)) % 6;
+    return (placement.row + (placement.col * 2) + 5) % 6;
   }
 
   calculateGradientOffset(angle) {
