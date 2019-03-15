@@ -15,11 +15,11 @@ export class FullPageGradient extends Component {
 
     const colors = [
       design.colors.foregroundDark,
-      design.colors.foregroundLight
+      design.colors.foregroundLight,
     ];
 
     return (
-      <linearGradient id={id} {...props} >
+      <linearGradient id={id} {...props} gradientUnits="userSpaceOnUse"> 
         {design.gradient.stops.map((stop, i) => 
           <stop key={i} offset={stop} stopColor={colors[i % colors.length]} />
         )}
