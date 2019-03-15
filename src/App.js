@@ -8,16 +8,16 @@ import { Fonts } from './Fonts';
 import design from './Design';
 import data from './data.json';
 
-const { RENDER_WIDTH, RENDER_UNITS } = process.env;
-
 class App extends Component {
   render() {
-    let { width, height } = {};
+    const { renderWidth, renderUnits } = this.props;
 
-    if(RENDER_WIDTH !== undefined) {
+    let width, height;
+
+    if(renderWidth !== undefined) {
       const aspect = design.viewbox.width / design.viewbox.height;
-      width = `${RENDER_WIDTH}${RENDER_UNITS}`;
-      height = `${RENDER_WIDTH / aspect}${RENDER_UNITS}`;
+      width = `${renderWidth}${renderUnits}`;
+      height = `${renderWidth / aspect}${renderUnits}`;
     };
 
     return (
@@ -25,7 +25,6 @@ class App extends Component {
         viewBox={`0 0 ${design.viewbox.width} ${design.viewbox.height}`}>
 
         <Fonts />
-
         <rect width="100%" height="100%" fill={design.colors.background} />
         <Border design={design.borderHexagons} colors={design.colors} />
         <Title design={design.title} />
