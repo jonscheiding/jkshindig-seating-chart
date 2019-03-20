@@ -50,8 +50,8 @@ const design = {
   },
   chart: {
     fonts: {
-      letters: { font: 'yesteryear', size: 65 },
-      names: { font: 'vollkorn', size: 35 },
+      letters: { name: 'yesteryear', size: 65 },
+      names: { name: 'vollkorn', size: 35 },
     },
     columns: {
       layout: {
